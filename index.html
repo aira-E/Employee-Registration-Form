@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee Registration Form</title>
+	<link rel="stylesheet" href="Sources/styles.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="title"> Employee Registration Form </div>
+    <div class="subtitle"> Personal Information </div>
+    <div class="form">
+       <div class="inputfield">
+          <label>Full Name</label>
+          <input type="text" class="input" id="ustext"
+          placeholder="First Name M.I Last Name">
+       </div>   
+       <div class="inputfield">
+          <label>Birthdate</label>
+          <input type="date" class="input">
+       </div>  
+        <div class="inputfield">
+          <label>Gender</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="lgbtqia+">LGBTQIA+</option>
+              <option value="not">Prefer not to say</option>
+            </select>
+          </div>
+       </div> 
+       <div class="subtitle"> Contact Information </div>
+        <div class="inputfield">
+          <label>Email Address</label>
+          <form id="form" action="#"></form>
+          <input type="text" class="input" id="email"
+          placeholder="Enter a valid Email Address" onkeydown="email_validation()">
+       </div> 
+       <div>
+        <span id="text"></span>
+      </div>
+
+      <div class="inputfield">
+          <label>Phone Number</label>
+          <form id="form_phone" action="#"> </form>
+          <input type="text" class="input" id="phone"
+          placeholder="Enter a valid Phone Number" onkeydown="phone_validation()">
+       </div> 
+       <div>
+        <span id="text_phone"></span>
+      </div>
+
+      <div class="inputfield">
+          <label>Address</label>
+          <textarea class="textarea"
+          placeholder="City, Sate"></textarea>
+       </div> 
+       <div class="subtitle"> Application </div>
+       <div class="inputfield">
+        <label>Position</label>
+        <input type="text" class="input">
+     </div>   
+      <div class="inputfield">
+        <label>Type of work</label>
+        <div class="custom_select">
+          <select>
+            <option value="">Select</option>
+            <option value="male">Permanent</option>
+            <option value="female">Temporary</option>
+            <option value="lgbtqia+">Both</option>          </select>
+        </div>
+     </div> 
+ 
+
+     <div class="inputfield">
+      <label>Resume</label>
+      <input type="file" class="input">
+      </div>  
+
+      <div class="inputfield terms">
+          <label class="check">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <p>I have read the terms and conditions of the company</p>
+       </div> 
+      <div class="inputfield">
+        <button value="Register" class="btn" onclick="display()"> Register</button>
+      </div>
+    </div>
+</div>	  
+  <script type="text/javascript">
+    function email_validation()
+    {
+      var form = document.getElementById("form");
+      var email = document.getElementById("email").value;
+      var text = document.getElementById("text");
+      var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+      if (email.match(pattern))
+      {
+        form.classList.add("valid");
+        form.classList.remove("invalid");
+        text.innerHTML = "Valid Email Address";
+        text.style.color = "#00ff00";
+      }
+
+      else
+      {
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        text.innerHTML = "Invalid Email Address";
+        text.style.color = "#ff0000";
+      }
+    }
+
+    function phone_validation()
+    {
+      var form_phone = document.getElementById("form_phone");
+      var phone = document.getElementById("phone").value;
+      var text_phone = document.getElementById("text_phone");
+      var pattern_phone = /^\d{11}$/;
+
+      if (phone.match(pattern_phone))
+      {
+        form_phone.classList.add("valid");
+        form_phone.classList.remove("invalid");
+        text_phone.innerHTML = "Valid Phone Number";
+        text_phone.style.color = "#00ff00";
+      }
+
+      else
+      {
+        form_phone.classList.remove("valid");
+        form_phone.classList.add("invalid");
+        text_phone.innerHTML = "Invalid Phone Number";
+        text_phone.style.color = "#ff0000";
+      }
+    }
+
+    function display()
+    {
+      var usertext = document.getElementById("ustext").value
+
+      if(usertext == "")
+      {
+        alert("Please fiil the empty space")
+      }
+
+      else
+      {
+        alert("Thank you for Registering!")
+      }
+    }
+  </script>
+	
+
+
+
+</body>
+</html>
