@@ -1,4 +1,4 @@
-# Personal Portfolio
+# Registration Form
 * Project Description: This is a sample of Employee Registration Form showcasing various input tags.
 
 * Project Features:
